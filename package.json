@@ -1,0 +1,10 @@
+{
+  "name": "anydoor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:huiboliu/anydoor.git",
+  "author": "lisheng <lisheng@pinduoduo.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {}
+}

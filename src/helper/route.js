@@ -10,6 +10,8 @@ const template = Handlebars.compile(source.toString());
 const conf = require("../config/defaultConfig");
 const mime = require("./mime");
 const compress = require("./compress");
+const range = require("./range");
+const isFresh = require("./cache");
 
 module.exports = async (req, res, filePath) => {
   try {
@@ -19,7 +21,20 @@ module.exports = async (req, res, filePath) => {
       const contentType = mime(filePath);
       res.statusCode = 200;
       res.setHeader("Content-Type", contentType);
+
+      if (isFresh(stats, req, res)) {
+        res.statusCode = 304;
+        res.end();
+        return;
+      }
+
       let rs = fs.createReadStream(filePath);
+      const { code, start, end } = range(stats.size, req, res);
+      if (code === 200) {
+        rs = fs.createReadStream(filePath);
+      } else {
+        rs = fs.createReadStream(filePath, { start, end });
+      }
       // 压缩文件
       if (filePath.match(conf.compress)) {
         rs = compress(rs, req, res);
@@ -40,7 +55,7 @@ module.exports = async (req, res, filePath) => {
       res.end(template(data));
     }
   } catch (e) {
-    // console.error(e);
+    console.error(e);
     res.statusCode = 404;
     res.setHeader("Content-Type", "text/plain");
     res.end(`${filePath} 请求有问题\n${e.toString()}`);

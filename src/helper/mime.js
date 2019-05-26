@@ -16,5 +16,5 @@ module.exports = filePath => {
   if (!ext) {
     ext = filePath;
   }
-  return mimeMap[ext] || "text/plain";
+  return mimeMap[ext] || "text/plain;charset=UTF-8";
 };

@@ -1,7 +1,7 @@
 {
   "name": "anydoor",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/app.js",
   "repository": "git@github.com:huiboliu/anydoor.git",
   "author": "lisheng <lisheng@pinduoduo.com>",
   "license": "MIT",
@@ -9,6 +9,7 @@
   "devDependencies": {},
   "dependencies": {
     "chalk": "^2.4.2",
-    "handlebars": "^4.1.2"
+    "handlebars": "^4.1.2",
+    "yargs": "^13.2.4"
   }
 }

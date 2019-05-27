@@ -5,7 +5,7 @@
   "repository": "git@github.com:huiboliu/anydoor.git",
   "author": "lisheng <lisheng@pinduoduo.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "bin": {
     "anydoor": "bin/anydoor"
   },

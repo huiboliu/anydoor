@@ -1,6 +1,6 @@
 {
   "name": "any-cute-door",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "src/app.js",
   "repository": "git@github.com:huiboliu/anydoor.git",
   "author": "huibo <lhb1991@qq.com>",

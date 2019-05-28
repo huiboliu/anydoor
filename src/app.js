@@ -4,7 +4,7 @@ const conf = require("./config/defaultConfig");
 const route = require("./helper/route");
 const path = require("path");
 const openUrl = require("./helper/openUrl");
-
+//
 class Server {
   constructor(config) {
     this.conf = { ...conf, ...config };
